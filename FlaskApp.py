@@ -46,14 +46,15 @@ def predict(location, model):
 def home():
     return render_template('index.html')
 
-@app.route('/predictPlaigrism', methods = ['GET','POST'])
+@app.route('/predictPlaigrism', methods=['GET', 'POST'])
 def process_image():
     if request.method == 'POST':
         f = request.files['file']
         location = "static/upload/"+f.filename
         f.save(os.path.join('static/upload', secure_filename(f.filename)))
-        output=predict(location,model)
+        output = predict(location, model)
         return render_template('index.html', prediction_text='This art is {}'.format(output))
+    return None
 
 if __name__ == '__main__':
     app.run(debug=True, port=80)
