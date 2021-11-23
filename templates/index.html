@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Classification test</title>
+  </head>
+  <body>
+    <h1>ART Classification</h1>
+    <p>Click to choose the image in your folder</p>
+    <form method="post" action="{{ url_for('process_image')}}" enctype="multipart/form-data">
+      <input type="file" name="file" id="files"/>
+      <input type="submit" />
+    </form>
+    <div>
+      <p></p>
+      {{ prediction_text }}
+    </div>
+  </body>
+</html>
